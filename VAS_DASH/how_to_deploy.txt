@@ -2,19 +2,19 @@
 
 Save script on EC2:
 
-nano deploy_dash_auto.sh
+nano deploy_dash.sh
 # paste the script
 # Ctrl+O Enter Ctrl+X
 
 
 Make it executable:
 
-chmod +x deploy_dash_auto.sh
+chmod +x deploy_dash.sh
 
 
 Run the script:
 
-./deploy_dash_auto.sh
+./deploy_dash.sh
 
 
 Done!
