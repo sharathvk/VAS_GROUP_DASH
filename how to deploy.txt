@@ -1,0 +1,35 @@
+🟢 How to Use
+
+Save script on EC2:
+
+nano deploy_dash_auto.sh
+# paste the script
+# Ctrl+O Enter Ctrl+X
+
+
+Make it executable:
+
+chmod +x deploy_dash_auto.sh
+
+
+Run the script:
+
+./deploy_dash_auto.sh
+
+
+Done!
+
+Dash app runs via Gunicorn on port 8050
+
+Nginx reverse proxy serves it on port 80
+
+App runs in detached screen session → survives PuTTY disconnect
+
+💡 Tip: To reattach to the screen session:
+
+screen -r dash_app
+
+
+To stop it:
+
+screen -S dash_app -X quit
