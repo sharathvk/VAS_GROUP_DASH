@@ -1,7 +1,7 @@
 from dash import Dash, dcc, html, Input, Output
 import dash_bootstrap_components as dbc
 
-from multiapps.apps import dashboard, sales, purchase
+from multiapps.apps import dashboard, sales, purchase, items
 
 app = Dash(
     __name__,
@@ -16,13 +16,14 @@ app.layout = dbc.Container(
         dcc.Location(id="url"),
 
         dbc.NavbarSimple(
-            brand="Sales & Purchase System",
+            brand="VAS TRACKING",
             color="dark",
             dark=True,
             children=[
                 dbc.NavItem(dbc.NavLink("Dashboard", href="/")),
                 dbc.NavItem(dbc.NavLink("Sales", href="/sales")),
                 dbc.NavItem(dbc.NavLink("Purchase", href="/purchase")),
+                dbc.NavItem(dbc.NavLink("Items", href="/items")),
             ]
         ),
 
@@ -41,6 +42,8 @@ def route_pages(pathname):
         return sales.layout
     elif pathname == "/purchase":
         return purchase.layout
+    elif pathname == "/items":
+        return items.layout
     else:
         return dashboard.layout
 
