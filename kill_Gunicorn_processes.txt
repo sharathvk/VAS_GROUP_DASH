@@ -1,0 +1,50 @@
+1️⃣ List running Gunicorn processes
+ps aux | grep gunicorn
+
+
+Example output:
+
+ec2-user  38229  0.0  0.2 222328 2132 pts/0    S+   14:40   0:00 gunicorn index:server --bind 0.0.0.0:8050
+ec2-user  38235  0.0  0.1 222328 1234 pts/0    S+   14:40   0:00 gunicorn index:server --bind 0.0.0.0:8050
+ec2-user  38240  0.0  0.0 11200   876 pts/0    S+   14:40   0:00 grep --color=auto gunicorn
+
+2️⃣ Kill all Gunicorn processes
+pkill gunicorn
+
+
+This kills all running Gunicorn processes.
+
+No need to specify PIDs manually.
+
+Verify:
+
+ps aux | grep gunicorn
+
+
+Only the grep gunicorn line should appear → all Gunicorn processes are stopped.
+
+3️⃣ Kill Gunicorn in screen (if running in detached screen)
+
+List screens:
+
+screen -ls
+
+
+Example:
+
+There is a screen on:
+        34325.dash_app  (Detached)
+1 Socket in /run/screen/S-ec2-user.
+
+
+Kill it:
+
+screen -S dash_app -X quit
+
+
+Verify:
+
+screen -ls
+
+
+Should say: No Sockets found
